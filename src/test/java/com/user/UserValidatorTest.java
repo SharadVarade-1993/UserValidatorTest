@@ -62,17 +62,30 @@ public class UserValidatorTest {
     }
 
     @Test
-    public void givenMobileNumber_WhenProper_ShouldReturnTrue(){
+    public void givenPasswordMin8_WhenProper_ShouldReturnTrue(){
         UserValidator validator = new UserValidator();
-        boolean result=validator.validateMobileNumber("91 9561315541");
-        Assert.assertSame(true,result);
+        boolean result=validator.validatePassword("Sharad12");
+        Assert.assertEquals(true,result);
+
     }
 
     @Test
-    public void givenMobileNumber_WhenProper_ShouldReturnFalse(){
+    public void givenPasswordMin8_WhenProper_ShouldReturnFalse(){
         UserValidator validator = new UserValidator();
-        boolean result=validator.validateMobileNumber("919561315541");
-        Assert.assertSame(false,result);
+        boolean result=validator.validatePassword("sharad");
+        Assert.assertEquals(false,result);
     }
+        @Test
+        public void givenPasswordAtLeastOneUpperCase_WhenProper_ShouldReturnTrue(){
+            UserValidator validator = new UserValidator();
+            boolean result=validator.validateUpperCase("Sharadva");
+            Assert.assertEquals(true,result);
+        }
 
+        @Test
+        public void givenPasswordAtLeastOneUpperCase_WhenProper_ShouldReturnFalse(){
+            UserValidator validator = new UserValidator();
+            boolean result=validator.validateUpperCase("sharadvarade");
+            Assert.assertEquals(false,result);
+        }
 }
