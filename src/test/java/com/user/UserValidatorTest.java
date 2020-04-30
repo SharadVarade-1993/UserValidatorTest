@@ -60,4 +60,19 @@ public class UserValidatorTest {
         Assert.assertEquals(true, result);
 
     }
+
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnTrue(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateMobileNumber("91 9561315541");
+        Assert.assertSame(true,result);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnFalse(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateMobileNumber("919561315541");
+        Assert.assertSame(false,result);
+    }
+
 }
