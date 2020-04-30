@@ -24,6 +24,7 @@ public class UserValidator {
         return pattern.matcher(email).matches();
     }
 
+
     public boolean validatePassword(String password){
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         return pattern.matcher(password).matches();
