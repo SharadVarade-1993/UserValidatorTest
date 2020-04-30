@@ -60,4 +60,12 @@ public class UserValidatorTest {
         Assert.assertEquals(true, result);
 
     }
+
+    @Test
+    public void givenPasswordMin8_WhenProper_ShouldReturnTrue(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validatePassword("Sharad12");
+        Assert.assertEquals(true,result);
+
+    }
 }
