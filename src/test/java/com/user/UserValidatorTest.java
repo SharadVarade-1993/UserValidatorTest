@@ -75,17 +75,54 @@ public class UserValidatorTest {
         boolean result=validator.validatePassword("sharad");
         Assert.assertEquals(false,result);
     }
-        @Test
-        public void givenPasswordAtLeastOneUpperCase_WhenProper_ShouldReturnTrue(){
-            UserValidator validator = new UserValidator();
-            boolean result=validator.validateUpperCase("Sharadva");
-            Assert.assertEquals(true,result);
-        }
 
-        @Test
-        public void givenPasswordAtLeastOneUpperCase_WhenProper_ShouldReturnFalse(){
-            UserValidator validator = new UserValidator();
-            boolean result=validator.validateUpperCase("sharadvarade");
-            Assert.assertEquals(false,result);
-        }
+    @Test
+    public void givenPasswordAtLeastOneUpperCase_WhenProper_ShouldReturnTrue(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateUpperCase("Sharadva");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPasswordAtLeastOneUpperCase_WhenProper_ShouldReturnFalse(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateUpperCase("sharadvarade");
+        Assert.assertEquals(false,result);
+    }
+
+    @Test
+    public void givenOneNumericNumber_WhenProper_ShouldReturnTrue(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateOneNumber("Sharad123");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenOneNumericNumber_WhenProper_ShouldReturnFalse(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateOneNumber("Sharad123");
+        Assert.assertEquals(false,result);
+    }
+
+    @Test
+    public void givenOneSpecialCharacter_WhenProper_ShouldReturnTrue(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateSpecialCharacter("Sharad!@#$");
+        Assert.assertEquals(true,result);
+
+    }
+
+    @Test
+    public void givenOneSpecialCharacter_WhenProper_ShouldReturnFalse(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateSpecialCharacter("Sharad!@#$");
+        Assert.assertEquals(false,result);
+    }
+/*
+    @Test
+    public void givenExactallyOneSpecialCharacter_WhenProper_ShouldReturnTrue(){
+        UserValidator validator = new UserValidator();
+        boolean result=validator.validateSpecialSymbol("Sharad!@#");
+        Assert.assertEquals(true,result);
+    }*/
 }

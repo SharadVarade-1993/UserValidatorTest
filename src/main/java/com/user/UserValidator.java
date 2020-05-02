@@ -7,7 +7,10 @@ public class UserValidator {
     private  static final String LAST_NAME_PATTERN="^[A-Z]{1}[a-z]{2,}$";
     private  static final String EMAIL_ADDRESS_PATTERN="[a-zA-Z]+([._+-][0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})$";
     private  static final String PASSWORD_PATTERN="^[0-9a-zA-Z]{8,}$";
-    private  static  final String UPPER_PATTERN="^[A-Z]{1}[a-zA-Z]{7,}$";
+    private  static final String UPPER_PATTERN="^[A-Z]{1}[a-zA-Z]{7,}$";
+    private  static final String ONE_NUMERIC_NUMBER_PATTERN="^([0-9]{1}[0-9a-zA-Z])$";
+    private  static final String SPECIAL_CHARACTER_PATTERN="^([@#$%&!][0-9a-zA-Z]{1,7})$";
+
 
 
     public boolean validateFirstName(String fname){
@@ -34,5 +37,15 @@ public class UserValidator {
     public boolean validateUpperCase(String upper){
         Pattern pattern = Pattern.compile(UPPER_PATTERN);
         return pattern.matcher(upper).matches();
+    }
+
+    public boolean validateOneNumber(String numeric){
+        Pattern pattern = Pattern.compile(ONE_NUMERIC_NUMBER_PATTERN);
+        return pattern.matcher(numeric).matches();
+    }
+
+    public boolean validateSpecialCharacter(String special){
+        Pattern pattern = Pattern.compile(SPECIAL_CHARACTER_PATTERN);
+        return pattern.matcher(special).matches();
     }
 }
